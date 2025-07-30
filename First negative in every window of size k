@@ -1,0 +1,26 @@
+vector<int> firstNegInt(vector<int>& arr, int k) {
+        // write code here
+        vector<int>ans ;
+        deque<int>deq ;
+        int i=0,j=0;
+        while(j<arr.size()){
+             if(arr[j]<0)
+                deq.push_back(arr[j]) ;
+            
+            if(j-i+1==k){
+                if(!deq.empty()){
+                    ans.push_back(deq.front()) ;  
+                }
+                else
+                  ans.push_back(0) ;
+            
+              if(arr[i]<0&&!deq.empty())
+               deq.pop_front() ;
+               i++ ;
+            }
+            
+            j++ ;
+        }
+        
+        return ans ;
+        
